@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<article class="media content-section">
+    {% if announcement %}
+        {% for post in announcement %} 
+            <div class="media-body">
+                <div class="article-metadata">
+                    <h2 class="article-title">{{ post.title }}</h2>
+                    <small class="text-muted">{{ post.date_posted|date:"d  F  Y" }}</small>
+                </div>
+                    <p class="article-content">{{ post.content }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+    <div class="media-body">
+        <div class="article-metadata">
+            <h2 class="article-title"> No New Announcements </h2>
+        </div>
+    </div>
+    {% endif %}
+    </article>
+{% endblock %}

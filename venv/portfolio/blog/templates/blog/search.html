@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block content %}  
+
+    {% for post in all_search_results %}
+    {% if post|length == 0 %}
+            {% include 'blog/snippets/blog_post_snippit.html' with posts=post %}
+        {% else %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <h2 class="article-title">Nobody here</h2>
+                    <p class="article-content">There were no results for your search</p>
+                </div>
+            </article>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
